@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      opacity: {
+        '54': '.54',
+      }
+
+    },
   },
-  plugins: [require("@tailwindcss/forms")]
+  plugins: [],
 }
