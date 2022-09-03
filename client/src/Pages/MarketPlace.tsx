@@ -2,6 +2,6 @@ import React from 'react'
 
 export const MarketPlace = () => {
   return (
-    <div>MarketPlace</div>
+    <div className='relative mx-auto'>MarketPlace</div>
   )
 }
