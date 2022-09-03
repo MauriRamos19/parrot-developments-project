@@ -1,16 +1,14 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import config from './config';
-import db from './database/config'
-import { AuthRouter } from './routes';
+import db from './utils/db'
+import AuthRouter from './utils/auth';
 
 class App {
 
     private app: Application;
     private PORT: string | undefined;
-    private paths = {
-        'auth': '/api/auth'
-    };
+
 
     constructor() {
         this.app = express();
@@ -33,7 +31,9 @@ class App {
     }
 
     private routes(): void {
-        this.app.use(this.paths.auth, AuthRouter);
+        this.app.post('/signIn',AuthRouter.signIn);
+        this.app.post('/signUp', AuthRouter.signUp);
+        this.app.use('/api', AuthRouter.protect)
     }
 
 
